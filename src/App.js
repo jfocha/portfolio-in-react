@@ -14,7 +14,7 @@ function App() {
       description: <Portfolio></Portfolio>,
     },
     { name: 'resume', description: <Resume></Resume> },
-    
+
   ]);
 
   const [currentCategory, setCurrentCategory] = useState(categories[0]);
@@ -25,6 +25,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Nav
+          component={'span'}
           categories={categories}
           setCurrentCategory={setCurrentCategory}
           currentCategory={currentCategory}
@@ -33,18 +34,20 @@ function App() {
         ></Nav>
       </header>
       {!contactSelected ? (
-          <>
-            <Gallery currentCategory={currentCategory}></Gallery>
-            
-          </>
-        ) : (
-          <ContactForm></ContactForm>
-        )}
-          <footer>
+        <main>
+          <Gallery currentCategory={currentCategory}></Gallery>
 
-          </footer>
-        </div>
-      );
+        </main>
+      ) : (
+        <ContactForm></ContactForm>
+      )}
+      <footer className="flex-row px-1">
+        <a className="flex-row px-2" href="https://github.com/jfocha">GitHub</a>
+        <a className="flex-row px-2" href="https://www.linkedin.com/in/joseph-focha-24492a5b/">LinkedIn</a>
+        <a className="flex-row mx-2" href="https://www.facebook.com/joe.focha.5">Facebook</a>
+      </footer>
+    </div>
+  );
 }
 
-      export default App;
+export default App;
