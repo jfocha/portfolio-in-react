@@ -7,7 +7,8 @@ function Nav(props) {
     setCurrentCategory,
     currentCategory,
     contactSelected,
-    setContactSelected
+    setContactSelected,
+    setAboutMeSelected
   } = props;
 
   useEffect(() => {
@@ -23,11 +24,7 @@ function Nav(props) {
       </h2>
       <nav>
         <ul className="flex-row">
-          <li className="mx-2">
-            <a data-testid="about" href="#about" onClick={() => setContactSelected(false)}>
-              About me
-            </a>
-          </li>
+          
           <li className={`mx-2 ${contactSelected && 'navActive'}`}>
             <span onClick={() => setContactSelected(true)}>Contact</span>
           </li>
@@ -40,6 +37,7 @@ function Nav(props) {
               <span onClick={() => {
                 setCurrentCategory(category);
                 setContactSelected(false);
+                setAboutMeSelected(true);
               }}
               >
                 {capitalizeFirstLetter(category.name)}
