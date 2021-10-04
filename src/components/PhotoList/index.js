@@ -1,137 +1,56 @@
 import React, { useState } from 'react';
-// import Modal from '../Modal';
 
-const PhotoList = ({ category }) => {
+const Project = () => {
 
   const [photos] = useState([
     {
-      name: 'Grocery aisle',
-      category: 'commercial',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
+      title: 'Meal Bytes',
+      link: 'https://pure-wildwood-98439.herokuapp.com/',
+      github: 'https://github.com/jfocha/meal-bytes',
     },
     {
-      name: 'Grocery booth',
-      category: 'commercial',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
+      title: 'Movie Buddy',
+      link: 'https://jfocha.github.io/movie-buddy/',
+      github: 'https://github.com/jfocha/movie-buddy',
     },
     {
-      name: 'Building exterior',
-      category: 'commercial',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
+      title: 'The Tech Blog',
+      link: 'https://sleepy-tundra-56200.herokuapp.com/',
+      github: 'https://github.com/jfocha/the-tech-blog',
     },
     {
-      name: 'Restaurant table',
-      category: 'commercial',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
+      title: 'Work Day Scheduler',
+      link: 'https://jfocha.github.io/work-day-scheduler/',
+      github: 'https://github.com/jfocha/work-day-scheduler',
     },
-    {
-      name: 'Cafe interior',
-      category: 'commercial',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
-    },
-    {
-      name: 'Cat green eyes',
-      category: 'portraits',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
-    },
-    {
-      name: 'Green parrot',
-      category: 'portraits',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
-    },
-    {
-      name: 'Yellow macaw',
-      category: 'portraits',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
-    },
-    {
-      name: 'Pug smile',
-      category: 'portraits',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
-    },
-    {
-      name: 'Pancakes',
-      category: 'food',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
-    },
-    {
-      name: 'Burrito',
-      category: 'food',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
-    },
-    {
-      name: 'Scallop pasta',
-      category: 'food',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
-    },
-    {
-      name: 'Burger',
-      category: 'food',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
-    },
-    {
-      name: 'Fruit bowl',
-      category: 'food',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
-    },
-    {
-      name: 'Green river',
-      category: 'landscape',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
-    },
-    {
-      name: 'Docks',
-      category: 'landscape',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
-    },
-    {
-      name: 'Panoramic village by sea',
-      category: 'landscape',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
-    },
-    {
-      name: 'Domestic landscape',
-      category: 'landscape',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
-    },
-    {
-      name: 'Park bench',
-      category: 'landscape',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
-    },
+    
   ]);
-
-  const currentPhotos = photos.filter((photo) => photo.category === category);
-
-  const [currentPhoto, setCurrentPhoto] = useState();
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  console.log(currentPhoto);
-  
-  const toggleModal = (image, i) => {
-    // current photo
-    setCurrentPhoto({ ...image, index: i });
-    setIsModalOpen(!isModalOpen);
-  }
 
   return (
     <div>
-      {/* {isModalOpen && (
-        <Modal currentPhoto={currentPhoto} onClose={toggleModal} />
-      )} */}
       <div className="flex-row">
-        {currentPhotos.map((image, i) => (
+        {photos.map((image, i) => (
+          <div>
+          <div>
+            {image.title}
+          </div>
+          <div>
+            <a href={image.link}>Deployed Application</a>
+          </div>
+          <div>
+          <a href={image.github}>GitHub Repository</a>
+          </div>
           <img
-            src={require(`../../assets/small/${category}/${i}.jpg`).default}
-            alt={image.name}
+            src={require(`../../assets/small/${i}.png`).default}
+            alt={image.title}
             className="img-thumbnail mx-1"
-            onClick={() => toggleModal(image, i)}
-            key={image.name}
+            key={image.title}
           />
+          </div>
         ))}
       </div>
     </div>
   );
 };
 
-export default PhotoList;
+export default Project;

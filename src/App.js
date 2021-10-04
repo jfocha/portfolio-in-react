@@ -1,25 +1,25 @@
 import React, { useState } from 'react';
 import Nav from './components/Nav';
-// import About from './components/About';
+import About from './components/About';
 import Gallery from './components/Gallery';
 import ContactForm from './components/Contact';
-
+import Portfolio from './components/Portfolio';
+import Resume from './components/Resume';
 
 function App() {
   const [categories] = useState([
-    { name: 'about me', description: 'Lorem ip[sum' },
+    { name: 'about me', description: <About></About> },
     {
       name: 'portfolio',
-      description: 'Photos of grocery stores, food trucks, and other commercial projects',
+      description: <Portfolio></Portfolio>,
     },
-    { name: 'resume', description: 'Portraits of people in my life' },
+    { name: 'resume', description: <Resume></Resume> },
     
   ]);
 
   const [currentCategory, setCurrentCategory] = useState(categories[0]);
 
   const [contactSelected, setContactSelected] = useState(false);
-  const [aboutMeSelected, setAboutMeSelected] = useState(false);
 
   return (
     <div className="App">
@@ -30,13 +30,11 @@ function App() {
           currentCategory={currentCategory}
           contactSelected={contactSelected}
           setContactSelected={setContactSelected}
-          aboutMeSelected={aboutMeSelected}
-          setAboutMeSelected={setAboutMeSelected}
         ></Nav>
       </header>
       {!contactSelected ? (
           <>
-            <Gallery currentCategory={currentCategory} aboutMeSelected={aboutMeSelected}></Gallery>
+            <Gallery currentCategory={currentCategory}></Gallery>
             
           </>
         ) : (
