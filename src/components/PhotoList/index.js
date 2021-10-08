@@ -23,6 +23,11 @@ const Project = () => {
       link: 'https://jfocha.github.io/work-day-scheduler/',
       github: 'https://github.com/jfocha/work-day-scheduler',
     },
+    {
+      title: 'Book Scouts',
+      link: 'https://obscure-dusk-46095.herokuapp.com/',
+      github: 'https://github.com/jfocha/book-scouts',
+    },
 
   ]);
 
