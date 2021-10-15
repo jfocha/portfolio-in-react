@@ -4,7 +4,7 @@ import React from 'react';
 function Resume() {
   return (
     <section className="my-5">
-      <h1 id="resume">Download My <a href="mailto:jfocha@gmail.com">Resume</a></h1>
+      <h1 id="resume">Download My <a href="../../assets/Resume.zip" download>Resume</a></h1>
 
       <h3>Front End Proficiencies</h3>
       <ul>
